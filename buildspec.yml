@@ -17,7 +17,7 @@ phases:
       - echo Build phase started
       - mvn test
       - mvn package
-      - sam build
+      - sam build --debug
       
   post_build:
     commands:
@@ -30,4 +30,5 @@ artifacts:
     - packaged.yaml
     - template.yaml
     - appspec.yml
+    - .aws-sam/**/*
   discard-paths: no

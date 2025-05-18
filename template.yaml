@@ -7,7 +7,7 @@ Resources:
     Properties:
       FunctionName: Epam-UploadsNotificationFunction 
       Handler: com.andkantor.notificationfunction.NotificationFunction::handleRequest
-      Runtime: java21
+      Runtime: java17
       CodeUri: .
       MemorySize: 512
       Timeout: 30
