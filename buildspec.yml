@@ -8,25 +8,20 @@ phases:
   
   pre_build:
     commands:
-      - echo Pre-build phase started on `date`
+      - echo Pre-build phase started
       - mvn clean
       - pip install --upgrade aws-sam-cli
       
   build:
     commands:
-      - echo Build phase started on `date`
-      - mvn compile
+      - echo Build phase started
+      - mvn test
       - mvn package
       - sam build
       
-  # test:
-  #   commands:
-  #     - echo Test phase started on `date`
-  #     - mvn test
-      
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed
       - sam package --template-file template.yaml --s3-bucket ${ARTIFACT_BUCKET} --output-template-file packaged.yaml
       
 artifacts:
