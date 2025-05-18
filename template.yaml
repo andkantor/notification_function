@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  UploadsNotificationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Epam-UploadsNotificationFunction 
+      Handler: com.andkantor.notificationfunction.NotificationFunction::handleRequest
+      Runtime: java21
+      CodeUri: .
+      MemorySize: 512
+      Timeout: 30
+      AutoPublishAlias: live
+      DeploymentPreference:
+        Type: AllAtOnce
+      Policies:
+        - S3ReadPolicy:
+            BucketName: andkantor-0308
+        - SNSPublishMessagePolicy:
+            TopicName: Epam-UploadsNotificationTopic
+        - CloudWatchLogsFullAccess
+
+Outputs:
+  FunctionArn:
+    Description: ARN of the Lambda function
+    Value: !GetAtt UploadsNotificationFunction.Arn
