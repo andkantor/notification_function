@@ -19,10 +19,10 @@ phases:
       - mvn package
       - sam build
       
-  test:
-    commands:
-      - echo Test phase started on `date`
-      - mvn test
+  # test:
+  #   commands:
+  #     - echo Test phase started on `date`
+  #     - mvn test
       
   post_build:
     commands:
