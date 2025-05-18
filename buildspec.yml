@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: java21
+      java: corretto17
       python: 3.9  # Required for AWS SAM CLI
   
   pre_build:
