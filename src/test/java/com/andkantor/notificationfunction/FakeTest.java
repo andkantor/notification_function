@@ -5,5 +5,6 @@ public class FakeTest {
 
     public void testNotificationFunction() {
         System.out.println("Running fake test");
+        throw new RuntimeException("Fake test failed");
     }
 }
